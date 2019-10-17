@@ -50,11 +50,24 @@ import org.apache.ibatis.type.TypeHandlerRegistry;
 public abstract class BaseExecutor implements Executor {
 
   private static final Log log = LogFactory.getLog(BaseExecutor.class);
-
+  /**
+   * 包含事务
+   */
   protected Transaction transaction;
+
+  /**
+   * executor proxy
+   */
   protected Executor wrapper;
 
+  /**
+   * a queue
+   */
   protected ConcurrentLinkedQueue<DeferredLoad> deferredLoads;
+
+  /**
+   * local cache
+   */
   protected PerpetualCache localCache;
   protected PerpetualCache localOutputParameterCache;
   protected Configuration configuration;
@@ -69,6 +82,8 @@ public abstract class BaseExecutor implements Executor {
     this.localOutputParameterCache = new PerpetualCache("LocalOutputParameterCache");
     this.closed = false;
     this.configuration = configuration;
+
+    //default  itself
     this.wrapper = this;
   }
 
