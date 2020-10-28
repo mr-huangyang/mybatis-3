@@ -95,6 +95,8 @@ import org.apache.ibatis.type.TypeHandler;
 import org.apache.ibatis.type.TypeHandlerRegistry;
 
 /**
+ * oy: 非常关键的一个类
+ *      4类对象可被拦截：executor , param handler, statement handler , result handler
  * @author Clinton Begin
  */
 public class Configuration {
@@ -142,8 +144,12 @@ public class Configuration {
    */
   protected Class<?> configurationFactory;
 
+  // mapper 管理器
   protected final MapperRegistry mapperRegistry = new MapperRegistry(this);
+
+  //代理连
   protected final InterceptorChain interceptorChain = new InterceptorChain();
+
   protected final TypeHandlerRegistry typeHandlerRegistry = new TypeHandlerRegistry();
   protected final TypeAliasRegistry typeAliasRegistry = new TypeAliasRegistry();
   protected final LanguageDriverRegistry languageRegistry = new LanguageDriverRegistry();

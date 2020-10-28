@@ -26,6 +26,9 @@ import java.util.Set;
 import org.apache.ibatis.reflection.ExceptionUtil;
 
 /**
+ * 1:生成拦截器代理类
+ * 2: 拦截器必须用 @Intercepts注解
+ * jdk proxy : proxy object --> invocation handler -- > target
  * @author Clinton Begin
  */
 public class Plugin implements InvocationHandler {
@@ -66,6 +69,11 @@ public class Plugin implements InvocationHandler {
     }
   }
 
+  /**
+   * 获取拦截器执行 所要求的方法相关信息
+   * @param interceptor
+   * @return
+   */
   private static Map<Class<?>, Set<Method>> getSignatureMap(Interceptor interceptor) {
     Intercepts interceptsAnnotation = interceptor.getClass().getAnnotation(Intercepts.class);
     // issue #251

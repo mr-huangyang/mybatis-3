@@ -39,6 +39,8 @@ import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
 
 /**
+ *  execute crud sql by calling sql session
+ *
  * @author Clinton Begin
  * @author Eduardo Macarron
  * @author Lasse Voss

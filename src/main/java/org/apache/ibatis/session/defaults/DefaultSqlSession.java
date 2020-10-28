@@ -40,6 +40,12 @@ import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
 
 /**
+ * a: 主要调用流程涉及到的类
+ *   {@link  org.apache.ibatis.binding.MapperProxy} -> MapperMethod -> SqlSession ->  Executor -> plugin -> jdbc
+ *
+ *
+ *
+ *
  * The default implementation for {@link SqlSession}.
  * Note that this class is not Thread-Safe.
  *
@@ -48,6 +54,8 @@ import org.apache.ibatis.session.SqlSession;
 public class DefaultSqlSession implements SqlSession {
 
   private final Configuration configuration;
+
+  //oy: sql 执行器 一个代理对象
   private final Executor executor;
 
   private final boolean autoCommit;

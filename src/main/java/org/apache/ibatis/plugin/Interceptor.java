@@ -18,6 +18,7 @@ package org.apache.ibatis.plugin;
 import java.util.Properties;
 
 /**
+ * 用于封装拦截目标对象执行前后的逻辑
  * @author Clinton Begin
  */
 public interface Interceptor {
