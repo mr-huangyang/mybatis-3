@@ -49,6 +49,7 @@ import org.apache.ibatis.type.JdbcType;
 import org.apache.ibatis.type.TypeHandler;
 
 /**
+ * {@link XMLStatementBuilder}
  * @author Clinton Begin
  * @author Kazuki Shimizu
  */

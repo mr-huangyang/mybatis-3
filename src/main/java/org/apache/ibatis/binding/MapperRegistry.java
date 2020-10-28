@@ -49,6 +49,7 @@ public class MapperRegistry {
       throw new BindingException("Type " + type + " is not known to the MapperRegistry.");
     }
     try {
+      //生成mapper代理
       return mapperProxyFactory.newInstance(sqlSession);
     } catch (Exception e) {
       throw new BindingException("Error getting mapper instance. Cause: " + e, e);
@@ -66,13 +67,20 @@ public class MapperRegistry {
       }
       boolean loadCompleted = false;
       try {
+
         knownMappers.put(type, new MapperProxyFactory<>(type));
+
         // It's important that the type is added before the parser is run
         // otherwise the binding may automatically be attempted by the
         // mapper parser. If the type is already known, it won't try.
+
+        //#oy: 处理mapper 上的注解
         MapperAnnotationBuilder parser = new MapperAnnotationBuilder(config, type);
         parser.parse();
         loadCompleted = true;
+
+
+
       } finally {
         if (!loadCompleted) {
           knownMappers.remove(type);

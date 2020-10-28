@@ -41,7 +41,11 @@ import org.apache.ibatis.session.SqlSession;
 
 /**
  * a: 主要调用流程涉及到的类
- *   {@link  org.apache.ibatis.binding.MapperProxy} -> MapperMethod -> SqlSession ->  Executor -> plugin -> jdbc
+ *   {@link  org.apache.ibatis.binding.MapperProxy} 对mapper method 进行缓存管理
+ *        -> MapperMethod  结合configuration 获取 sql id
+ *           -> SqlSession 通过 sql id 获取 mapped statement 对象
+ *              ->  Executor 结合 mapped statement ，params , result handler , bound sql 执行
+ *                 -> plugin -> jdbc
  *
  *
  *

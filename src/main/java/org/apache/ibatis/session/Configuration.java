@@ -95,6 +95,7 @@ import org.apache.ibatis.type.TypeHandler;
 import org.apache.ibatis.type.TypeHandlerRegistry;
 
 /**
+ *  a:集中管理{@link MappedStatement} , {@link org.apache.ibatis.binding.MapperProxy}
  * oy: 非常关键的一个类
  *      4类对象可被拦截：executor , param handler, statement handler , result handler
  * @author Clinton Begin
@@ -154,6 +155,7 @@ public class Configuration {
   protected final TypeAliasRegistry typeAliasRegistry = new TypeAliasRegistry();
   protected final LanguageDriverRegistry languageRegistry = new LanguageDriverRegistry();
 
+  //#oy?: 为什么要集中管理这些 mapped statement
   protected final Map<String, MappedStatement> mappedStatements = new StrictMap<MappedStatement>("Mapped Statements collection")
       .conflictMessageProducer((savedValue, targetValue) ->
           ". please check " + savedValue.getResource() + " and " + targetValue.getResource());
