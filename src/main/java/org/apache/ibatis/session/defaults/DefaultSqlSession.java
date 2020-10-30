@@ -40,6 +40,11 @@ import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
 
 /**
+ *
+ * mybatis 核心思想是对sql编号，通过唯一的sql编号进行调用。sql session 只是对这一过程的封装。
+ * 而 mapper 又是对sql session 的进一步封装。通过用户自定义的接口方法对应到sql 编号再调用sql session 执行
+ *
+ *
  * a: 主要调用流程涉及到的类
  *   {@link  org.apache.ibatis.binding.MapperProxy} 对mapper method 进行缓存管理
  *        -> MapperMethod  结合configuration 获取 sql id

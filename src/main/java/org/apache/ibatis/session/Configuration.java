@@ -96,6 +96,7 @@ import org.apache.ibatis.type.TypeHandlerRegistry;
 
 /**
  *  a:集中管理{@link MappedStatement} , {@link org.apache.ibatis.binding.MapperProxy}
+ *
  * oy: 非常关键的一个类
  *      4类对象可被拦截：executor , param handler, statement handler , result handler
  * @author Clinton Begin
