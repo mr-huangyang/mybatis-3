@@ -294,6 +294,11 @@ public final class MappedStatement {
     return resultSets;
   }
 
+  /**
+   * #oy: sql 相关
+   * @param parameterObject
+   * @return
+   */
   public BoundSql getBoundSql(Object parameterObject) {
     BoundSql boundSql = sqlSource.getBoundSql(parameterObject);
     List<ParameterMapping> parameterMappings = boundSql.getParameterMappings();
