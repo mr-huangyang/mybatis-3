@@ -28,7 +28,7 @@ import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.transaction.Transaction;
 
 /**
- * oy:sql执行器
+ * oy:sql执行器 : 为什么需要这样一个接口，多设计一层？？
  * @author Clinton Begin
  */
 public interface Executor {

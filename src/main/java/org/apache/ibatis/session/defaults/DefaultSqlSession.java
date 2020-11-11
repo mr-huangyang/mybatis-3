@@ -54,6 +54,7 @@ import org.apache.ibatis.session.SqlSession;
  *
  *
  *
+ *  sql session 是 executor 的上层接口
  *
  * The default implementation for {@link SqlSession}.
  * Note that this class is not Thread-Safe.

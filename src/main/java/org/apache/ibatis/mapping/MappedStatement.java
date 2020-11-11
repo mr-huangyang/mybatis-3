@@ -29,7 +29,7 @@ import org.apache.ibatis.scripting.LanguageDriver;
 import org.apache.ibatis.session.Configuration;
 
 /**
- *  #oy: 重要的类
+ *  #oy: 重要的类  xml 中对应的 sql 结点  {@link SqlSource}
  * @author Clinton Begin
  */
 public final class MappedStatement {
