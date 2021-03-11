@@ -149,7 +149,7 @@ public class Configuration {
   // mapper 管理器
   protected final MapperRegistry mapperRegistry = new MapperRegistry(this);
 
-  //代理连
+  //代理连,只能代理 executor , resulthandler, paramhandler, statementhandler
   protected final InterceptorChain interceptorChain = new InterceptorChain();
 
   protected final TypeHandlerRegistry typeHandlerRegistry = new TypeHandlerRegistry();
