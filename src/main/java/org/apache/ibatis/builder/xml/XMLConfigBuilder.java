@@ -47,6 +47,7 @@ import org.apache.ibatis.transaction.TransactionFactory;
 import org.apache.ibatis.type.JdbcType;
 
 /**
+ *  解析配置文件
  * @author Clinton Begin
  * @author Kazuki Shimizu
  */

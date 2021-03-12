@@ -137,7 +137,6 @@ public class ForEachSqlNode implements SqlNode {
     public Map<String, Object> getBindings() {
       return delegate.getBindings();
     }
-
     @Override
     public void bind(String name, Object value) {
       delegate.bind(name, value);

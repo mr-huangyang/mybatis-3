@@ -34,6 +34,7 @@ import org.apache.ibatis.scripting.LanguageDriver;
 import org.apache.ibatis.session.Configuration;
 
 /**
+ * 解析sql语句元素
  * @author Clinton Begin
  */
 public class XMLStatementBuilder extends BaseBuilder {
