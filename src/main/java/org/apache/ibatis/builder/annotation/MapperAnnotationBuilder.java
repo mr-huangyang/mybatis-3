@@ -92,6 +92,7 @@ import org.apache.ibatis.type.TypeHandler;
 import org.apache.ibatis.type.UnknownTypeHandler;
 
 /**
+ *  针对sql注解的解析器
  * @author Clinton Begin
  * @author Kazuki Shimizu
  */
@@ -126,12 +127,16 @@ public class MapperAnnotationBuilder {
   public void parse() {
     String resource = type.toString();
     if (!configuration.isResourceLoaded(resource)) {
+
       // 先加载xml 配置文件
       loadXmlResource();
+
       configuration.addLoadedResource(resource);
       assistant.setCurrentNamespace(type.getName());
+      //解析缓存
       parseCache();
       parseCacheRef();
+
       Method[] methods = type.getMethods();
       for (Method method : methods) {
         try {
@@ -299,8 +304,12 @@ public class MapperAnnotationBuilder {
 
   void parseStatement(Method method) {
     Class<?> parameterTypeClass = getParameterType(method);
+
+    //todo ??
     LanguageDriver languageDriver = getLanguageDriver(method);
+
     SqlSource sqlSource = getSqlSourceFromAnnotations(method, parameterTypeClass, languageDriver);
+
     if (sqlSource != null) {
       Options options = method.getAnnotation(Options.class);
       final String mappedStatementId = type.getName() + "." + method.getName();
